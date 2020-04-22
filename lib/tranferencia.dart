@@ -10,7 +10,7 @@ eventos que acontecem no aplicativo, enquanto o StatelessWidget
 não permite esse tipo de modificação.*/
 
 class Transferencia {
-  final String valor;6 
+  final String valor; 
   final String conta;
 
   Transferencia(
@@ -26,21 +26,12 @@ class ItemTransferencia extends StatelessWidget {
   /*CONSTRUTOR = Passando os atributos da conta 
   transferência para a classe item transferência.*/  
   ItemTransferencia(this._transferencia)
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Card(
-      /*EXISTEM DIVERSOS TIPOS DE COMPLEMENTOS NO CARD
+  
+  /*EXISTEM DIVERSOS TIPOS DE COMPLEMENTOS NO CARD
       PARA QUE O CARD SEJA ATIVO TEMOS QUE CRIAR UM CHILD.
       DENTRO DEST CHILD PODEMOS UTILIZAR A PROPRIEDADE DESEJADA.*/
-      child: ListTile(
-        leading: Icon(Icons.monetization_on),
-        title: Text(_transferencia.valor),
-        subtitle: Text(_transferencia.conta),
-      ),
-    );
-  }
+
+  
 }
 
 class listaTransferencias extends StatelessWidget {
