@@ -10,7 +10,7 @@ eventos que acontecem no aplicativo, enquanto o StatelessWidget
 não permite esse tipo de modificação.*/
 
 class Transferencia {
-  final String valor; 
+  final String valor;
   final String conta;
 
   Transferencia(
@@ -20,18 +20,26 @@ class Transferencia {
 }
 
 class ItemTransferencia extends StatelessWidget {
-  // Criando um objeto da classe trasferencia em uma variavel privada
+// Criando um objeto da classe trasferencia em uma variavel privada
   final Transferencia _transferencia;
 
-  /*CONSTRUTOR = Passando os atributos da conta 
-  transferência para a classe item transferência.*/  
-  ItemTransferencia(this._transferencia)
-  
-  /*EXISTEM DIVERSOS TIPOS DE COMPLEMENTOS NO CARD
+/*CONSTRUTOR = Passando os atributos da conta 
+  transferência para a classe item transferência.*/
+  ItemTransferencia(this._transferencia);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      /*EXISTEM DIVERSOS TIPOS DE COMPLEMENTOS NO CARD
       PARA QUE O CARD SEJA ATIVO TEMOS QUE CRIAR UM CHILD.
       DENTRO DEST CHILD PODEMOS UTILIZAR A PROPRIEDADE DESEJADA.*/
-
-  
+      child: ListTile(
+        leading: Icon(Icons.monetization_on),
+        title: Text(_transferencia.valor.toString()),
+        subtitle: Text(_transferencia.conta.toString()),
+      ),
+    );
+  }
 }
 
 class listaTransferencias extends StatelessWidget {
@@ -41,12 +49,11 @@ class listaTransferencias extends StatelessWidget {
       // A COLUNA DEIXA TODOS OS CARDS ALINHADOS UM ENCIMA DO OUTRO.
       children: <Widget>[
         //CRIASE UM FILHO NA COLUNA PARA QUE ELA POSSA PERMANECER ATIVA
-        ItemTransferencia(Transferencia('100.00','10.203040')),
-        ItemTransferencia(Transferencia('500.00','10.203040')),
-        ItemTransferencia(Transferencia('600.00','10.203040')),
-        ItemTransferencia(Transferencia('700.00','10.203040')),
+        ItemTransferencia(Transferencia('100.00', '10.203040')),
+        ItemTransferencia(Transferencia('500.00', '10.203040')),
+        ItemTransferencia(Transferencia('600.00', '10.203040')),
+        ItemTransferencia(Transferencia('700.00', '10.203040')),
       ],
     );
   }
 }
-
