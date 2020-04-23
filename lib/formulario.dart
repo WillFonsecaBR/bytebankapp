@@ -31,16 +31,16 @@ class FormularioTransferencia extends StatelessWidget {
           ),
           RaisedButton(
             child: Text('Confirmar'),
-            onPressed: () => _criaTransferencia(),
+            onPressed: () => _criaTransferencia(context),
           ),
         ],
       ),
     );
   }
 
-  void _criaTransferencia() {
+  void _criaTransferencia(BuildContext context) {
     //! MOSTRA UM PRINT NO DEBUG AO CLICAR NO BOTÃO.
-    debugPrint('Clicou em confirmar');
+    // debugPrint('Clicou em confirmar');
 
     //! COLHE AS INFORMAÇÕES INSERIDAS NOS TEXTFILDS
     final int numeroConta = int.tryParse(_controladorConta.text);
@@ -49,9 +49,9 @@ class FormularioTransferencia extends StatelessWidget {
     //! INSERINDO OS VALORES NA CLASSE TRANSFERENCIA
     if (numeroConta != null && valor != null) {
       final transferenciaCriada = Transferencia(valor, numeroConta);
+      debugPrint('Criando transferência');
       debugPrint('$transferenciaCriada');
-    } else {
-      debugPrint('NÃO FOI POSSIVEL REALIZAR A TRANSFERENCIA');
+      Navigator.pop(context, transferenciaCriada);
     }
   }
 }
