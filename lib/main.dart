@@ -1,6 +1,8 @@
 import 'package:bytebank/tranferencia.dart';
 import 'package:flutter/material.dart';
 
+import 'formulario.dart';
+
 void main() => runApp(ByteBankApp());
 
 class ByteBankApp extends StatelessWidget {
